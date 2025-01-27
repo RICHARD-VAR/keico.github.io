@@ -1,12 +1,9 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LEGALTIVA - Consorcio de Abogados Expertos | Asesoría Legal Integral</title>
-    <meta name="description" content="LEGALTIVA es un consorcio de abogados expertos que ofrece asesoría legal integral en diversas áreas del derecho. Protegemos tus intereses con un enfoque profesional y personalizado.">
-    <meta name="keywords" content="abogados, asesoría legal, LEGALTIVA, consorcio de abogados, derecho civil, derecho penal, derecho laboral, defensa legal, consultoría jurídica">
-    <meta name="author" content="RICHARD VRGAS CEL 70680432">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -16,16 +13,18 @@
             font-family: 'Roboto', sans-serif;
         }
 
-        body {
+        body, html {
             margin: 0;
             padding: 0;
-            background: #FFFFFF;
+            height: 100%;
+            overflow: hidden;
+            background: #000;
         }
 
         .carousel-container {
             position: relative;
             width: 100%;
-            height: calc(100vh - 56px);
+            height: 100%;
             overflow: hidden;
             z-index: 1;
         }
@@ -87,13 +86,19 @@
         }
 
         @media (max-width: 768px) {
-            .carousel-container {
-                height: auto;
-                aspect-ratio: 16 / 9;
-            }
-
             .overlay h3 {
                 font-size: 1.5rem;
+            }
+
+            /* Cambiar las imágenes del carrusel en modo móvil******************* */
+            .carousel-item:nth-child(1) img {
+                content: url('foto/10.jpg');
+            }
+            .carousel-item:nth-child(2) img {
+                content: url('foto/20.jpg');
+            }
+            .carousel-item:nth-child(3) img {
+                content: url('foto/30.jpg');
             }
         }
     </style>
@@ -144,7 +149,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             particlesJS('particles-js', {
                 particles: {
-                    number: { value: 100, density: { enable: true, value_area: 800 } },
+                    number: { value: 200, density: { enable: true, value_area: 800 } },
                     color: { value: ["#ffffff", "#87CEEB", "#E6E6FA", "#B0E0E6"] },
                     shape: { type: "star", stroke: { width: 0 } },
                     opacity: {
@@ -201,10 +206,10 @@
                 var isMobile = windowWidth <= 767;
                 
                 if (isMobile) {
-                    carouselContainer.style.height = 'auto';
-                    carouselContainer.style.aspectRatio = '16 / 9';
+                    carouselContainer.style.height = '100vh';
+                    carouselContainer.style.aspectRatio = 'auto';
                 } else {
-                    carouselContainer.style.height = 'calc(100vh - 56px)';
+                    carouselContainer.style.height = '100vh';
                     carouselContainer.style.aspectRatio = 'auto';
                 }
 
